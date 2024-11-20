@@ -12,7 +12,7 @@ def meteo():
     response = urlopen('https://samples.openweathermap.org/data/2.5/forecast?lat=0&lon=0&appid=xxx')
     raw_content = response.read()
     json_content = json.loads(raw_content.decode('utf-8'))
-    results = []
+    results = [dt]
     for list_element in json_content.get('list', []):
         dt_value = list_element.get('dt')
         temp_day_value = list_element.get('main', {}).get('temp') - 273.15 # Conversion de Kelvin en °c 
